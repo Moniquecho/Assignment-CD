@@ -16,10 +16,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-          script: |
-             mkdir test
-             cd test
-             git clone git@gitgub.com:Moniquecho/Assignment-CD.git
-             echo "Deployment successful to digital ocean"
+          script: ls
+           
       
     
