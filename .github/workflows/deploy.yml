@@ -1,4 +1,4 @@
-name: Deploy
+name: Build and Deploy
 on: 
   workflow_run:
     workflows: ["Run tests"]
@@ -11,12 +11,15 @@ jobs:
     steps:
       - name: Executing remote command
         uses: appleboy/ssh-action@master
-        
         with:
           host: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-          script: ls
+          script: |
+             mkdir test
+             cd test
+             git clone git@gitgub.com:Moniquecho/Assignment-CD.git
+             echo "Deployment successful to digital ocean"
       
     
