@@ -16,7 +16,11 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-          script: ls
+          script: |
+               pip install gunicorn flask
+               cd /home/Assignment-CD
+               git pull
+               systemctl restart Assignment-CD
              
          
            
