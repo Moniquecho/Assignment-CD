@@ -20,8 +20,8 @@ jobs:
                echo "Deployment completed"
                cd /home/farm
                git pull origin master
-               systemctl restart farm.service
-               systemctl status farm.service
+               systemctl restart nginx
+               systemctl status farm
              
          
            
