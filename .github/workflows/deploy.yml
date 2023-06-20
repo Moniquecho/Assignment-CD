@@ -11,12 +11,11 @@ jobs:
      steps:
       - name: Copy repository contents via scp
         uses: appleboy/scp-action@v0.1.4
-        env:
+        with:
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-        with:
           source: "main.py"
           target: "/var/www/html/"
  
