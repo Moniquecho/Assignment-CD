@@ -9,7 +9,7 @@ jobs:
   deploy:
      runs-on: ubuntu-latest  
      steps:
-         - name: SSH Remote Commands
+         - name: Deploy Flask app to Digital Ocean
            uses: appleboy/ssh-action@v0.1.4
            with:
              host: ${{ secrets.HOST }}
@@ -18,9 +18,10 @@ jobs:
              port: ${{ secrets.PORT }}
              script: |
                echo "Deployment completed"
-               cd /home/cd
-               git pull
-               systemctl restart Assignment-CD
+               cd /home/farm
+               git pull origin master
+               systemctl restart farm.service
+               systemctl status farm.service
              
          
            
