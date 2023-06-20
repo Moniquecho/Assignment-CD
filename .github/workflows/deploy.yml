@@ -4,11 +4,17 @@ on:
     workflows: ["Run tests"]
     types:
       - completed
+    
       
 jobs:  
   deploy:
      runs-on: ubuntu-latest  
      steps:
+         - name: Set up SSH
+           uses: webfactory/ssh-agent@v0.5.0
+           with:
+              ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+              
          - name: Deploy Flask app to Digital Ocean
            uses: appleboy/ssh-action@v0.1.4
            with:
@@ -19,9 +25,9 @@ jobs:
              script: |
                echo "Deployment completed"
                cd /home/farm
-               git pull origin master
-               systemctl restart nginx
-               systemctl status farm
+               git pull origin main
+               sudo systemctl restart nginx
+               sudo systemctl status farm.service
              
          
            
