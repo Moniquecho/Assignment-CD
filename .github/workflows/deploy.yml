@@ -7,26 +7,20 @@ on:
       
 jobs:  
   deploy:
-     runs-on: ubuntu-latest
+     runs-on: ubuntu-latest  
      steps:
-      - name: Copy repository contents via scp
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          HOST: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.SSHKEY }}
-          source: "main.py"
-          target: "/var/www/html/"
- 
-      - name: Executing remote command
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.SSHKEY }}
-          script: ls
+         - name: SSH Remote Commands
+           uses: appleboy/ssh-action@v0.1.4
+           with:
+             host: ${{ secrets.HOST }}
+             username: ${{ secrets.USERNAME }}
+             key: ${{ secrets.KEY }}
+             port: ${{ secrets.PORT }}
+             script: |
+               echo "Deployment completed"
+               cd /home/cd
+               git pull
+               systemctl restart Assignment-CD
              
          
            
