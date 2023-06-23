@@ -24,7 +24,7 @@ jobs:
              port: ${{ secrets.PORT }}
              script: |
                echo "Deployment completed"
-               cd home/Assignment-CD
+               cd home/farm
                sudo systemctl restart farm
                sudo systemctl status farm.service
              
