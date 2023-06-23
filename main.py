@@ -10,6 +10,6 @@ def index():
 
 @app.route('/farm')
 def farm():
-    return 'Cow and cat!'
+    return 'Cat and cat!'
     
 
