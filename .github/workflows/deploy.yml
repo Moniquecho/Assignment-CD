@@ -24,8 +24,8 @@ jobs:
              port: ${{ secrets.PORT }}
              script: |
                echo "Deployment completed"
-               cd /home/farm
-               git pull origin master
+               cd /home/Assignment-CD
+               git clone git@github.com/Moniquecho:Assignment-CD.git
                sudo systemctl restart farm
                sudo systemctl status farm.service
              
