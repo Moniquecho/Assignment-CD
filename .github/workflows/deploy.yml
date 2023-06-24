@@ -28,7 +28,7 @@ jobs:
                git pull 
                sudo systemctl enable --now farm
                sudo systemctl status farm
-               sudo systemctl restart nginx
+               sudo systemctl restart farm
                echo "Deploy completed"
              
          
