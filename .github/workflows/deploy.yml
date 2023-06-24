@@ -23,10 +23,11 @@ jobs:
              key: ${{ secrets.SSHKEY }}
              port: ${{ secrets.PORT }}
              script: |
-               echo "Deployment completed"
-               cd /home/farm
-               sudo systemctl restart farm
-               sudo systemctl status farm.service
+               echo "Now to the server"
+               cd /root/
+               git clone https://github.com/Moniquecho/Assignment-CD.git
+               sudo systemctl restart Assignment-CD
+               echo "Deploy completed"
              
          
            
