@@ -25,7 +25,7 @@ jobs:
              script: |
                echo "Now to the server"
                cd /home/CD
-               git pull 
+               git clone https://github.com/Moniquecho/Assignment-CD.git 
                sudo systemctl enable --now farm
                sudo systemctl status farm
                sudo systemctl restart nginx
