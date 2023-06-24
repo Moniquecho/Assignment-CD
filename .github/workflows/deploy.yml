@@ -24,9 +24,11 @@ jobs:
              port: ${{ secrets.PORT }}
              script: |
                echo "Now to the server"
-               cd /root/
+               cd /home/farm/
                git clone https://github.com/Moniquecho/Assignment-CD.git
-               sudo systemctl restart Assignment-CD
+               sudo systemctl restart nginx
+               sudo systemctl enable --now farm
+               sudo systemctl status farm
                echo "Deploy completed"
              
          
