@@ -24,7 +24,7 @@ jobs:
              port: ${{ secrets.PORT }}
              script: |
                echo "Now to the server"
-               cd /root/Assignment-CD/
+               cd /home/farm/Assignment-CD/
                git pull 
                sudo systemctl enable --now farm
                sudo systemctl status farm
